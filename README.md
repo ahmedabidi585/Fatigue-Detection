@@ -1,144 +1,145 @@
 # Fatigue-Detection 👁️🚘
 
-**Fatigue-Detection** est un système de vision par ordinateur en temps réel développé en Python. Il utilise **OpenCV** et **MediaPipe** pour analyser les points caractéristiques du visage (Face Mesh) et détecter la fatigue ou le somnolence du conducteur en calculant le taux d'ouverture des yeux (*Eye Aspect Ratio - EAR*).
+**Fatigue-Detection** is a real-time computer vision system developed in Python. It uses **OpenCV** and **MediaPipe** to analyze facial landmarks (Face Mesh) and detect driver fatigue or drowsiness by calculating the **Eye Aspect Ratio (EAR)**.
 
 ---
 
-## 🌟 Fonctionnalités Principales
+## 🌟 Main Features
 
-- **📹 Test et Capture Vidéo** : Vérification rapide et simple du flux de la caméra web.
-- **👤 Analyse Faciale en Temps Réel** : Cartographie complète du visage grâce aux 468 points de repère de MediaPipe Face Mesh.
-- **👁️ Calcul de l'EAR (Eye Aspect Ratio)** : Mesure précise de la fermeture des yeux en temps réel.
-- **🚨 Alerte de Fatigue Automatique** : Affichage d'un avertissement visuel sur le flux vidéo (`FATIGUE DETECTED`) si les yeux restent fermés pendant plus de 2 secondes.
-
----
-
-## 🛠️ Technologies Utilisées
-
-- **Python 3.8+**
-- **OpenCV** (`opencv-python`) : Capture et traitement d'images en temps réel.
-- **MediaPipe** (`mediapipe`) : Modèle avancé de détection de repères faciaux (Face Mesh).
-- **NumPy** (`numpy`) : Calculs matriciels et scientifiques.
+* **📹 Video Testing and Capture**: Quick and simple verification of the webcam video stream.
+* **👤 Real-Time Facial Analysis**: Complete facial landmark mapping using the 468 landmarks provided by MediaPipe Face Mesh.
+* **👁️ Eye Aspect Ratio (EAR) Calculation**: Accurate measurement of eye closure in real time.
+* **🚨 Automatic Fatigue Alert**: Displays a visual warning (`FATIGUE DETECTED`) on the video stream when the eyes remain closed for more than 2 seconds.
 
 ---
 
-## 📂 Structure du Projet
+## 🛠️ Technologies Used
+
+* **Python 3.8+**
+* **OpenCV** (`opencv-python`): Real-time image capture and processing.
+* **MediaPipe** (`mediapipe`): Advanced facial landmark detection using Face Mesh.
+* **NumPy** (`numpy`): Mathematical, matrix, and scientific computations.
+
+---
+
+## 📂 Project Structure
 
 ```text
 Fatigue-Detection/
-├── assets/             # Fichiers médias, captures d'écran et démos
-├── data/               # Données de test ou enregistrements
-├── docs/               # Documentation complémentaire
-├── models/             # Modèles pré-entraînés (si applicables)
-├── src/                # Modules sources du projet
-├── cameratest.py       # Script de test de la webcam
-├── detection.py        # Script principal de détection de fatigue (EAR)
-├── face.py             # Script de démonstration du Face Mesh MediaPipe
-├── test.py             # Script de vérification de l'environnement Python
-├── .gitignore          # Fichiers et dossiers à ignorer par Git
-├── requirements.txt    # Dépendances du projet
-└── README.md           # Documentation principale
+├── assets/             # Media files, screenshots, and demos
+├── data/               # Test data or recordings
+├── docs/               # Additional documentation
+├── models/             # Pre-trained models (if applicable)
+├── src/                # Source code modules
+├── cameratest.py       # Webcam testing script
+├── detection.py        # Main fatigue detection script (EAR)
+├── face.py             # MediaPipe Face Mesh demonstration
+├── test.py             # Python environment verification script
+├── .gitignore          # Files and directories ignored by Git
+├── requirements.txt    # Project dependencies
+└── README.md           # Main project documentation
 ```
 
 ---
 
-## 🚀 Installation et Configuration
+## 🚀 Installation and Setup
 
-### 1. Prérequis
-Assurez-vous d'avoir **Python 3.8** ou une version supérieure installée sur votre machine.
+### 1. Prerequisites
 
-### 2. Cloner le projet
+Make sure you have **Python 3.8 or later** installed on your machine.
+
+### 2. Clone the Repository
+
 ```bash
-git clone https://github.com/VOTRE_NOM_UTILISATEUR/Fatigue-Detection.git
+git clone https://github.com/YOUR_USERNAME/Fatigue-Detection.git
 cd Fatigue-Detection
 ```
 
-### 3. Créer et activer un environnement virtuel (recommandé)
+### 3. Create and Activate a Virtual Environment
 
-- **Sur Windows (PowerShell) :**
-  ```powershell
-  python -m venv venv
-  .\venv\Scripts\Activate.ps1
-  ```
+Creating a virtual environment is recommended.
 
-- **Sur Linux / macOS :**
-  ```bash
-  python3 -m venv venv
-  source venv/bin/activate
-  ```
+**Windows (PowerShell):**
 
-### 4. Installer les dépendances
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+**Linux / macOS:**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 4. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 💻 Utilisation
+## 💻 Usage
 
-### 1. Vérifier l'installation
-Pour vérifier que toutes les bibliothèques sont bien installées :
+### 1. Verify the Installation
+
+To check that all required libraries are correctly installed:
+
 ```bash
 python test.py
 ```
 
-### 2. Tester la caméra
-Pour s'assurer que la webcam fonctionne correctement :
+### 2. Test the Camera
+
+To make sure the webcam is working correctly:
+
 ```bash
 python cameratest.py
 ```
-*(Appuyez sur la touche `q` pour quitter).*
 
-### 3. Tester la détection faciale (Face Mesh)
-Pour observer le suivi des points caractéristiques du visage en temps réel :
+Press **`q`** to exit.
+
+### 3. Test Facial Detection (Face Mesh)
+
+To visualize real-time facial landmark tracking:
+
 ```bash
 python face.py
 ```
-*(Appuyez sur la touche `q` pour quitter).*
 
-### 4. Lancer la détection de fatigue (Script Principal)
-Pour démarrer la surveillance et le calcul de l'EAR :
+Press **`q`** to exit.
+
+### 4. Run the Fatigue Detection System
+
+Start the fatigue monitoring system and EAR calculation:
+
 ```bash
 python detection.py
 ```
-- **Seuil EAR** : Fixé à `0.20`.
-- **Durée d'alerte** : Si les yeux restent fermés plus de `2 secondes`, l'alerte **FATIGUE DETECTED** s'affiche en rouge à l'écran.
-- *(Appuyez sur la touche `q` pour quitter).*
+
+* **EAR Threshold**: Set to `0.20`.
+* **Alert Duration**: If the eyes remain closed for more than **2 seconds**, the **`FATIGUE DETECTED`** warning appears in red on the screen.
+* Press **`q`** to exit.
 
 ---
 
-## 🧠 Principe du Calcul de l'EAR (Eye Aspect Ratio)
+## 🧠 Eye Aspect Ratio (EAR)
 
-L'**Eye Aspect Ratio (EAR)** est une mesure géométrique basée sur la distance entre les repères des paupières supérieures et inférieures par rapport à la distance entre les coins de l'œil :
+The **Eye Aspect Ratio (EAR)** is a geometric measurement based on the distances between the upper and lower eyelid landmarks relative to the distance between the corners of the eye.
 
-$$EAR = \frac{||p_2 - p_6|| + ||p_3 - p_5||}{2 \times ||p_1 - p_4||}$$
+$$
+EAR = \frac{||p_2 - p_6|| + ||p_3 - p_5||}{2 \times ||p_1 - p_4||}
+$$
 
-Lorsque les yeux sont ouverts, la valeur de l'EAR est élevée et stable. Lorsque la personne ferme les yeux ou cligne des paupières, l'EAR chute brusquement vers zéro.
+When the eyes are open, the EAR value is relatively high and stable. When the person closes their eyes or blinks, the EAR decreases significantly and approaches zero.
 
----
+This makes EAR a useful metric for detecting prolonged eye closure, which can be an indicator of driver drowsiness.
 
-## 📤 Publication sur GitHub
-
-Pour envoyer ce projet sur votre compte GitHub :
-
-1. **Initialiser le dépôt local (déjà fait) :**
-   ```bash
-   git init
-   ```
-2. **Ajouter les fichiers et faire le commit :**
-   ```bash
-   git add .
-   git commit -m "Update project name to Fatigue-Detection"
-   ```
-3. **Lier à votre dépôt distant GitHub et envoyer :**
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/VOTRE_NOM_UTILISATEUR/Fatigue-Detection.git
-   git push -u origin main
-   ```
 
 ---
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
+This project is licensed under the **MIT License**. You are free to use, modify, and distribute it.
